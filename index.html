@@ -13,7 +13,8 @@
     scroll-behavior: smooth;
   }
   html {
-    scroll-padding-top: 150px;
+    /* Increased padding to cover header + nav */
+    scroll-padding-top: 140px;
   }
   body, html {
     height: 100%;
@@ -37,18 +38,21 @@
     position: fixed;
     top: 0;
     width: 100%;
+    height: 60px;
     background: rgba(0,0,0,0.9);
-    padding: 1rem;
+    padding: 1rem 0;
     text-align: center;
     color: #00ff99;
     font-size: 2rem;
     font-weight: bold;
     z-index: 1000;
     box-shadow: 0 0 15px #00ff99;
+    line-height: 1.2;
   }
   nav {
     position: fixed;
-    top: 70px;
+    top: 60px; /* directly below header */
+    height: 50px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -57,6 +61,7 @@
     padding: 0.75rem 0;
     z-index: 999;
     flex-wrap: wrap;
+    box-sizing: border-box;
   }
   nav a {
     color: #a0ffe0;
@@ -71,7 +76,8 @@
   }
   main {
     max-width: 900px;
-    margin: 160px auto 4rem;
+    /* margin-top adjusted to header + nav total height + small gap */
+    margin: 120px auto 4rem;
     padding: 0 1rem;
   }
   section {
@@ -80,6 +86,10 @@
     margin-bottom: 2rem;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
+
+    /* Add padding-top to prevent overlap by fixed header/nav when navigated to */
+    padding-top: 70px;
+    margin-top: -70px;
   }
   h2 {
     color: #00ff99;
@@ -304,7 +314,7 @@
     });
 
     // Highlight nav links based on scroll position
-    const scrollPos = window.scrollY + 160; // offset to consider header+nav
+    const scrollPos = window.scrollY + 150; // offset to consider header+nav
     navLinks.forEach(link => {
       const section = document.querySelector(link.getAttribute("href"));
       if (section && section.offsetTop <= scrollPos && (section.offsetTop + section.offsetHeight) > scrollPos) {
