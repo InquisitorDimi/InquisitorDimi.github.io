@@ -13,7 +13,7 @@
     scroll-behavior: smooth;
   }
   html {
-    scroll-padding-top: 200px; /* Height of header + nav for smooth scroll */
+    scroll-padding-top: 200px;
   }
   body, html {
     height: 100%;
@@ -71,17 +71,16 @@
   }
   main {
     max-width: 900px;
-    margin: 160px auto 4rem; /* margin-top gives space below fixed header/nav */
+    margin: 190px auto 4rem; /* increased top margin */
     padding: 0 1rem;
   }
   section {
     background: rgba(0,0,0,0.8);
-    padding: 2rem;
-    margin-bottom: 3.5rem; /* Increased spacing between sections */
+    padding: 2.5rem 2rem 2rem 2rem; /* added top padding */
+    margin-bottom: 4.5rem; /* increased bottom margin */
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
   }
-  /* Center content horizontally, keep text left aligned */
   section > *:not(h2) {
     max-width: 700px;
     margin-left: auto;
@@ -93,6 +92,7 @@
     text-align: center;
     margin-bottom: 1.5rem;
   }
+  /* ... rest of your CSS remains unchanged ... */
   .skill {
     margin-bottom: 1rem;
   }
@@ -299,10 +299,8 @@
   const navLinks = document.querySelectorAll("nav a");
 
   window.addEventListener("scroll", () => {
-    // Show scroll to top button
     scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
 
-    // Animate experience reveal
     document.querySelectorAll('.experience').forEach((el) => {
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight - 100) {
@@ -310,7 +308,6 @@
       }
     });
 
-    // Highlight active nav link
     const scrollPos = window.scrollY + 210;
     navLinks.forEach(link => {
       const section = document.querySelector(link.getAttribute("href"));
