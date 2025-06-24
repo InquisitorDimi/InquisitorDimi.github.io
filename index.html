@@ -13,7 +13,7 @@
     scroll-behavior: smooth;
   }
   html {
-    scroll-padding-top: 200px; /* Height of header + nav for smooth scroll */
+    scroll-padding-top: 250px;
   }
   body, html {
     height: 100%;
@@ -71,17 +71,16 @@
   }
   main {
     max-width: 900px;
-    margin: 160px auto 4rem; /* margin-top gives space below fixed header/nav */
+    margin: 250px auto 4rem;
     padding: 0 1rem;
   }
   section {
     background: rgba(0,0,0,0.8);
     padding: 2rem;
-    margin-bottom: 3.5rem; /* Increased spacing between sections */
+    margin-bottom: 4rem;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
   }
-  /* Center content horizontally, keep text left aligned */
   section > *:not(h2) {
     max-width: 700px;
     margin-left: auto;
@@ -199,6 +198,24 @@
     z-index: 9999;
     font-size: 20px;
   }
+  @media (max-width: 768px) {
+    html {
+      scroll-padding-top: 300px;
+    }
+    main {
+      margin-top: 300px;
+    }
+    header {
+      font-size: 1.5rem;
+    }
+    nav a {
+      padding: 0.4rem 0.7rem;
+      font-size: 0.9rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+  }
 </style>
 </head>
 <body>
@@ -214,12 +231,7 @@
 <main>
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      Experienced DevOps Engineer with over 4 years of hands-on experience designing, deploying, and optimizing scalable cloud infrastructure. I specialize in Linux, Docker, AWS, Kubernetes, Grafana and automation tooling that transforms manual operations into reliable pipelines. Passionate about Infrastructure as Code, observability, and CI/CD best practices, I focus on delivering robust systems that empower developers and improve system resilience.
-    </p>
-    <p>
-      I thrive in environments where innovation and iteration are key—leveraging AI to streamline workflows, drive automation, and accelerate continuous learning. I maintain a personal homelab to prototype ideas, validate architecture concepts, and 3D print practical solutions - say a fully functional spice rack! Whether it's building from scratch or refining existing setups, I’m always seeking ways to elevate both team performance and technical excellence.
-    </p>
+    <p>Experienced DevOps Engineer with over 4 years of hands-on experience designing, deploying, and optimizing scalable cloud infrastructure. I specialize in Linux, Docker, AWS, Kubernetes, Grafana and automation tooling that transforms manual operations into reliable pipelines...</p>
   </section>
   <section id="skills">
     <h2>Tech Skills</h2>
@@ -299,18 +311,11 @@
   const navLinks = document.querySelectorAll("nav a");
 
   window.addEventListener("scroll", () => {
-    // Show scroll to top button
     scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-
-    // Animate experience reveal
     document.querySelectorAll('.experience').forEach((el) => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        el.classList.add('reveal');
-      }
+      if (rect.top < window.innerHeight - 100) el.classList.add('reveal');
     });
-
-    // Highlight active nav link
     const scrollPos = window.scrollY + 210;
     navLinks.forEach(link => {
       const section = document.querySelector(link.getAttribute("href"));
@@ -321,7 +326,6 @@
       }
     });
   });
-
   scrollBtn.addEventListener("click", () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
   });
