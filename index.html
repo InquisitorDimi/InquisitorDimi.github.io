@@ -13,7 +13,6 @@
     scroll-behavior: smooth;
   }
   html {
-    /* Increased padding to cover header + nav */
     scroll-padding-top: 140px;
   }
   body, html {
@@ -51,7 +50,7 @@
   }
   nav {
     position: fixed;
-    top: 60px; /* directly below header */
+    top: 60px;
     height: 50px;
     width: 100%;
     display: flex;
@@ -76,20 +75,18 @@
   }
   main {
     max-width: 900px;
-    /* margin-top adjusted to header + nav total height + small gap */
     margin: 120px auto 4rem;
     padding: 0 1rem;
   }
   section {
     background: rgba(0,0,0,0.8);
     padding: 2rem;
-    margin-bottom: 2rem;
+    padding-top: 70px; /* for anchor offset */
+    margin-bottom: 3rem; /* more spacing between sections */
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
-
-    /* Add padding-top to prevent overlap by fixed header/nav when navigated to */
-    padding-top: 70px;
-    margin-top: -70px;
+    /* Removed negative margin */
+    /* margin-top: 0; */
   }
   h2 {
     color: #00ff99;
@@ -302,7 +299,6 @@
   const navLinks = document.querySelectorAll("nav a");
   const progressBarFills = document.querySelectorAll(".progress-bar-fill");
 
-  // Show/hide scroll to top button & reveal experience items on scroll
   window.addEventListener("scroll", () => {
     scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
 
@@ -313,8 +309,7 @@
       }
     });
 
-    // Highlight nav links based on scroll position
-    const scrollPos = window.scrollY + 150; // offset to consider header+nav
+    const scrollPos = window.scrollY + 150;
     navLinks.forEach(link => {
       const section = document.querySelector(link.getAttribute("href"));
       if (section && section.offsetTop <= scrollPos && (section.offsetTop + section.offsetHeight) > scrollPos) {
@@ -325,19 +320,17 @@
     });
   });
 
-  // Scroll to top button click handler
   scrollBtn.addEventListener("click", () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
   });
 
-  // Animate progress bars on page load
   window.addEventListener("load", () => {
     progressBarFills.forEach(bar => {
       const width = bar.style.width;
       bar.style.width = "0";
       setTimeout(() => {
         bar.style.width = width;
-      }, 100); // slight delay for smooth effect
+      }, 100);
     });
   });
 </script>
