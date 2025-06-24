@@ -140,6 +140,24 @@
     list-style: disc;
     line-height: 1.5;
   }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: #111;
+    border: 1px solid #00ff99;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    color: #a0ffe0;
+    box-shadow: 0 0 10px rgba(0, 255, 153, 0.2);
+  }
+  .project-card h3 {
+    color: #00ff99;
+    margin-bottom: 0.5rem;
+  }
   #contact a {
     color: #00ff99;
     text-decoration: none;
@@ -204,21 +222,12 @@
     <h2>Experience</h2>
     <div class="roadmap">
       <div class="experience">
-        <h3>C3i Solutions</h3>
-        <span>Windows Admin (Oct 2020 – Sep 2021)</span>
+        <h3>Domotz</h3>
+        <span>DevOps Engineer (Sep 2024 – Present)</span>
         <ul>
-          <li>Windows Server maintenance</li>
-          <li>Active Directory provisioning</li>
-          <li>Security policy enforcement</li>
-        </ul>
-      </div>
-      <div class="experience">
-        <h3>HedgeServ</h3>
-        <span>RPA Engineer (Oct 2021 – Oct 2023)</span>
-        <ul>
-          <li>Python automation</li>
-          <li>Web scraping for finance data</li>
-          <li>PowerBI dashboards</li>
+          <li>Infrastructure optimization</li>
+          <li>Observability with Grafana stack</li>
+          <li>High availability architecture</li>
         </ul>
       </div>
       <div class="experience">
@@ -231,12 +240,21 @@
         </ul>
       </div>
       <div class="experience">
-        <h3>Domotz</h3>
-        <span>DevOps Engineer (Sep 2024 – Present)</span>
+        <h3>HedgeServ</h3>
+        <span>RPA Engineer (Oct 2021 – Oct 2023)</span>
         <ul>
-          <li>Infrastructure optimization</li>
-          <li>Observability with Grafana stack</li>
-          <li>High availability architecture</li>
+          <li>Python automation</li>
+          <li>Web scraping for finance data</li>
+          <li>PowerBI dashboards</li>
+        </ul>
+      </div>
+      <div class="experience">
+        <h3>C3i Solutions</h3>
+        <span>Windows Admin (Oct 2020 – Sep 2021)</span>
+        <ul>
+          <li>Windows Server maintenance</li>
+          <li>Active Directory provisioning</li>
+          <li>Security policy enforcement</li>
         </ul>
       </div>
     </div>
@@ -244,7 +262,24 @@
 
   <section id="projects">
     <h2>My Projects</h2>
-    <p>Project details coming soon...</p>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Plex TV</h3>
+        <p>Media server project setup.Tired of paying for 4 streaming services</p>
+      </div>
+      <div class="project-card">
+        <h3>Lego Scouting</h3>
+        <p>LEGO tracker, for when certain models are on sale.</p>
+      </div>
+      <div class="project-card">
+        <h3>Vinyl Hut</h3>
+        <p><em>To find vintage and rare vinlys. Sadly, not Ready</em></p>
+      </div>
+      <div class="project-card">
+        <h3>Cthulhu</h3>
+        <p><em>Like Jarvis in Ironman, but a differrent name and looks. Work in progress</em></p>
+      </div>
+    </div>
   </section>
 
   <section id="contact">
