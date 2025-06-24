@@ -13,7 +13,7 @@
     scroll-behavior: smooth;
   }
   html {
-    scroll-padding-top: 210px; /* Combined header + nav height + buffer */
+    scroll-padding-top: 200px; /* Offset for fixed header + nav */
   }
   body, html {
     height: 100%;
@@ -36,39 +36,32 @@
   header {
     position: fixed;
     top: 0;
-    height: 70px; /* Fixed height */
-    line-height: 70px; /* Center text vertically */
     width: 100%;
     background: rgba(0,0,0,0.9);
-    padding: 0 1rem; /* Remove vertical padding */
+    padding: 1rem;
     text-align: center;
     color: #00ff99;
     font-size: 2rem;
     font-weight: bold;
     z-index: 1000;
     box-shadow: 0 0 15px #00ff99;
-    box-sizing: border-box;
   }
   nav {
     position: fixed;
-    top: 70px; /* Directly below header */
-    height: 50px; /* Fixed height */
-    line-height: 50px; /* Center nav links vertically */
+    top: 70px;
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 1rem;
     background: rgba(0,0,0,0.85);
-    padding: 0; /* Remove vertical padding */
-    z-index: 1100;
+    padding: 0.75rem 0;
+    z-index: 999;
     flex-wrap: wrap;
-    backdrop-filter: saturate(180%) blur(10px);
-    box-shadow: 0 1px 8px rgba(0, 255, 153, 0.4);
   }
   nav a {
     color: #a0ffe0;
     text-decoration: none;
-    padding: 0 1rem; /* horizontal padding only */
+    padding: 0.5rem 1rem;
     border-radius: 12px;
     font-weight: bold;
     transition: background 0.3s, color 0.3s;
@@ -79,7 +72,7 @@
   }
   main {
     max-width: 900px;
-    margin: 210px auto 4rem; /* Margin top = header + nav height */
+    margin: 200px auto 4rem;
     padding: 0 1rem;
   }
   section {
@@ -208,36 +201,6 @@
     font-size: 20px;
   }
 </style>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav a");
-
-    function animateSections() {
-      sections.forEach((sec) => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          sec.classList.add("visible");
-        }
-      });
-    }
-
-    function highlightNav() {
-      let index = sections.length;
-      while (--index && window.scrollY + 210 < sections[index].offsetTop) {}
-      navLinks.forEach((link) => link.classList.remove("active"));
-      if (navLinks[index]) navLinks[index].classList.add("active");
-    }
-
-    window.addEventListener("scroll", () => {
-      animateSections();
-      highlightNav();
-    });
-
-    animateSections();
-    highlightNav();
-  });
-</script>
 </head>
 <body>
 <header>Dimitar Ivanov</header>
@@ -259,6 +222,7 @@
       I thrive in environments where innovation and iteration are key—leveraging AI to streamline workflows, drive automation, and accelerate continuous learning. I maintain a personal homelab to prototype ideas, validate architecture concepts, and 3D print practical solutions - say a fully functional spice rack! Whether it's building from scratch or refining existing setups, I’m always seeking ways to elevate both team performance and technical excellence.
     </p>
   </section>
+
   <section id="skills">
     <h2>Tech Skills</h2>
     <div class="skill"><div class="skill-name">AWS</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 90%"></div></div></div>
@@ -269,6 +233,7 @@
     <div class="skill"><div class="skill-name">Prometheus / OpenTelemetry</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 70%"></div></div></div>
     <div class="skill"><div class="skill-name">Go / Python / JavaScript</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 75%"></div></div></div>
   </section>
+
   <section id="experience">
     <h2>Experience</h2>
     <div class="roadmap">
@@ -312,6 +277,7 @@
       </div>
     </div>
   </section>
+
   <section id="projects">
     <h2>My Projects</h2>
     <div class="projects-grid">
@@ -321,21 +287,26 @@
       <div class="project-card"><h3>Cthulhu</h3><p>Work in progress</p></div>
     </div>
   </section>
+
   <section id="certifications">
     <h2>Certifications</h2>
     <p>Coming soon...</p>
   </section>
+
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:dimi.ivanov666@gmail.com">dimi.ivanov666@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/dimitar-ivanov-88b250263" target="_blank">https://www.linkedin.com/in/dimitar-ivanov-88b250263</a></p>
   </section>
 </main>
+
 <button id="scrollTopBtn" title="Back to Top">↑</button>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav a");
+    const scrollBtn = document.getElementById("scrollTopBtn");
 
     function animateSections() {
       sections.forEach((sec) => {
@@ -356,18 +327,24 @@
     window.addEventListener("scroll", () => {
       animateSections();
       highlightNav();
+
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+
+      // Reveal experience items
+      document.querySelectorAll('.experience').forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('reveal');
+        }
+      });
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
     });
 
     animateSections();
     highlightNav();
-  });
-
-  const scrollBtn = document.getElementById("scrollTopBtn");
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  });
-  window.addEventListener("scroll", () => {
-    scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
   });
 </script>
 </body>
