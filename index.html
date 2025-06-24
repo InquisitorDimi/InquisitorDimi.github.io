@@ -3,246 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dimitar Ivanov - DevOps Portfolio</title>
+  <title>Dimitar Ivanov - DevOps Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      scroll-behavior: smooth;
     }
-    html, body {
+    body {
       font-family: 'Poppins', sans-serif;
-      color: #eee;
-      background: url('tech-tree.png') center center no-repeat fixed;
-      background-size: cover;
+      display: flex;
       min-height: 100vh;
-      position: relative;
-      background-color: #0d0223;
+      color: #f0f0f0;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
     }
-    body::after {
-      content: "";
+    aside {
+      width: 280px;
+      background-color: #1e1e2f;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: -1;
+      height: 100vh;
+      overflow-y: auto;
     }
-    header {
-      background: rgba(23, 7, 42, 0.9);
-      box-shadow: 0 0 15px #6e44a3;
-      border-radius: 12px;
-      max-width: 1000px;
-      margin: 1rem auto;
-      padding: 1.5rem 2rem;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 2.8rem;
+    aside h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
       color: #bb86fc;
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background: rgba(23, 7, 42, 0.9);
-      padding: 1rem;
-      border-radius: 12px;
-      gap: 1rem;
-      margin: 1rem auto;
-      max-width: 900px;
-    }
-    nav a {
-      color: #d9b3ff;
+    aside nav a {
+      color: #ccc;
       text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
+      margin: 0.5rem 0;
+      display: block;
+      transition: color 0.3s;
     }
-    nav a:hover, nav a.active {
-      background: rgba(123, 63, 242, 0.9);
-      color: #fff;
-      box-shadow: 0 0 10px #cfa2ff;
+    aside nav a:hover, aside nav a.active {
+      color: #bb86fc;
+    }
+    main {
+      margin-left: 280px;
+      padding: 2rem;
+      flex: 1;
     }
     section {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: rgba(26, 3, 43, 0.8);
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(123, 63, 242, 0.3);
+      margin-bottom: 3rem;
     }
     h2 {
-      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
       color: #bb86fc;
-      margin-bottom: 1.5rem;
     }
-    .experience, .hobby {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      align-items: center;
-    }
-    .experience img, .hobby img {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      border-radius: 10px;
-      background: #1b1030;
-      padding: 5px;
-    }
-    .experience-content h3, .hobby h3 {
-      margin: 0;
-      color: #c9a4ff;
-    }
-    .experience-content span {
-      font-size: 0.95rem;
-      color: #ccc;
-    }
-    .experience-content p, .hobby p {
-      margin-top: 0.5rem;
-      font-weight: 300;
-      line-height: 1.5;
-    }
-    footer {
-      font-size: 0.9rem;
-      color: #8b66b3cc;
-      text-align: center;
-      margin: 2rem auto;
-    }
-    #scrollTopBtn {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      font-size: 18px;
-      background-color: #6e44a3;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      padding: 12px 16px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #cfa2ff;
-      transition: background-color 0.3s;
-    }
-    #scrollTopBtn:hover {
-      background-color: #875ce5;
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
     }
     @media screen and (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
+      aside {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
       }
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-      .experience, .hobby {
-        flex-direction: column;
-        align-items: flex-start;
+      main {
+        margin-left: 0;
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
+  <aside>
     <h1>Dimitar Ivanov</h1>
-  </header>
-  <nav>
-    <a href="#home" class="active">Home</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#free-time">Free Time</a>
-    <a href="#projects">Projects</a>
-  </nav>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#free-time">Free Time</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  </aside>
 
-  <section id="home">
-    <h2>About Me</h2>
-    <p>Motivated DevOps Engineer with over 3 years of experience working in the world of Linux, Windows servers, Docker, VM's and AWS. Enthusiast about updating my tech stack and always trying to improve myself and my work. A OrangePI owner, keen to see the possibilities it holds, creating my own projects and helping my friends and team evolve in IT!</p>
-  </section>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Motivated DevOps Engineer with 3+ years of experience in Linux, Windows, Docker, VMs, and AWS. Passionate about upgrading my tech stack and continuously improving. I own an OrangePi, enjoy building projects and helping teams grow in IT.</p>
+    </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <p><strong>AWS:</strong> Expertise in EC2 provisioning, IAM policies, S3 bucket automation, and secure VPC architecture. Use of Terraform for infrastructure-as-code and Lambda for event-driven microservices.</p>
-    <p><strong>Linux:</strong> Proficient with Bash scripting, cron jobs, systemd services, log analysis, and securing production servers using SSH hardening, UFW, and fail2ban.</p>
-    <p><strong>Docker:</strong> Designed and deployed Docker-based microservice apps using Compose and multi-stage builds. Familiar with best practices for container networking and security.</p>
-    <p><strong>Grafana & Loki:</strong> Real-time dashboards and alerting, log aggregation using Loki pipelines, and integrating Prometheus metrics with clean visualizations.</p>
-    <p><strong>Prometheus & OpenTelemetry:</strong> End-to-end observability including metrics, logs, and traces. Integrated OTEL with backends like Tempo and Prometheus exporters.</p>
-    <p><strong>Programming:</strong> Writing efficient CLI tools in Go, scripting automation in Python, and front-end tweaks using JavaScript. Comfortable using APIs and REST clients like Postman.</p>
-    <p><strong>Kubernetes:</strong> Entry-level experience in deploying and managing containerized applications using kubectl and basic understanding of Pods, Services, and Deployments.</p>
-  </section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <p><strong>AWS:</strong> EC2, IAM, S3 automation, secure VPCs, Terraform IaC.</p>
+      <p><strong>Linux:</strong> Bash scripting, systemd, log analysis, SSH, UFW.</p>
+      <p><strong>Docker:</strong> Compose, multi-stage builds, security, networking.</p>
+      <p><strong>Grafana/Loki:</strong> Dashboards, alerts, pipeline config, visualization.</p>
+      <p><strong>Prometheus/OpenTelemetry:</strong> Traces, metrics, exporters, Tempo.</p>
+      <p><strong>Go/Python/JS:</strong> CLI tools, automation, scripting, Postman/API use.</p>
+      <p><strong>Kubernetes:</strong> Entry-level: pods, services, deployments (kubectl).</p>
+    </section>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="experience">
-      <img src="https://raw.githubusercontent.com/InquisitorDimi/InquisitorDimi.github.io/main/images/domotz-logo-2560.png" alt="Domotz Logo">
-      <div class="experience-content">
-        <h3>Domotz</h3>
-        <span>DevOps Engineer (Sep 2024 – Present)</span>
-        <p>Focused on infrastructure automation and observability with Grafana stack. System resilience and performance are top priorities.</p>
-      </div>
-    </div>
-    <div class="experience">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2560px-SAP_2011_logo.svg.png" alt="SAP Logo">
-      <div class="experience-content">
-        <h3>SAP (Contractor)</h3>
-        <span>CloudOps Engineer (Nov 2023 – Sep 2024)</span>
-        <p>Maintained Windows/Linux systems with CI/CD pipelines, Kubernetes automation, and Postman test orchestration. Collaborated with Dev teams to improve system reliability.</p>
-      </div>
-    </div>
-    <div class="experience">
-      <img src="https://raw.githubusercontent.com/InquisitorDimi/InquisitorDimi.github.io/main/images/hedgeserv-logo-2560.png" alt="HedgeServ Logo">
-      <div class="experience-content">
-        <h3>HedgeServ</h3>
-        <span>RPA Engineer (Oct 2021 – Oct 2023)</span>
-        <p>Created and maintained Python automation for scraping financial websites, with structured reporting via PowerBI dashboards. Focused on clean, maintainable code.</p>
-      </div>
-    </div>
-    <div class="experience">
-      <img src="https://raw.githubusercontent.com/InquisitorDimi/InquisitorDimi.github.io/main/images/c3i-logo-2560.png" alt="C3i Solutions Logo">
-      <div class="experience-content">
-        <h3>C3i Solutions</h3>
-        <span>Windows Admin (Oct 2020 – Sep 2021)</span>
-        <p>Managed enterprise Windows infrastructure including Active Directory provisioning, patching, and security policy enforcement for internal systems.</p>
-      </div>
-    </div>
-  </section>
+    <section id="experience">
+      <h2>Experience</h2>
+      <p><strong>Domotz</strong> – DevOps Engineer (Sep 2024 – Present)</p>
+      <p>Automation and observability with Grafana; focused on performance and system reliability.</p>
 
-  <section id="free-time">
-    <h2>In My Free Time</h2>
-    <div class="hobby">
-      <div>
-        <h3>3D Printing Enthusiast</h3>
-        <p>I use 3D printing to create storage mods and experimental home enhancements. It's a blend of hardware hacking and design iteration that constantly keeps me engaged.</p>
-      </div>
-    </div>
-    <div class="hobby">
-      <div>
-        <h3>Movie Buff</h3>
-        <p>From obscure sci-fi cult classics to award-winning masterpieces, I'm a dedicated film fan with a deep appreciation for storytelling, sound design, and cinematography. Also a massive vinyl collector — way too many records at home!</p>
-      </div>
-    </div>
-  </section>
+      <p><strong>SAP Contractor</strong> – CloudOps Engineer (Nov 2023 – Sep 2024)</p>
+      <p>Linux/Windows management, CI/CD pipelines, Kubernetes, testing via Postman.</p>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <p>Coming soon — this section will showcase my personal and professional DevOps projects.</p>
-  </section>
+      <p><strong>HedgeServ</strong> – RPA Engineer (Oct 2021 – Oct 2023)</p>
+      <p>Automated data scraping using Python, used PowerBI for reporting and dashboards.</p>
 
-  <footer>
-    © 2025 Dimitar Ivanov. All rights reserved.
-  </footer>
+      <p><strong>C3i Solutions</strong> – Windows Admin (Oct 2020 – Sep 2021)</p>
+      <p>Managed infrastructure and user services across enterprise Windows environments.</p>
+    </section>
 
-  <button onclick="scrollToTop()" id="scrollTopBtn" title="Back to top">↑</button>
-  <script>
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
-    window.onscroll = function() {
-      scrollTopBtn.style.display = document.documentElement.scrollTop > 300 ? "block" : "none";
-    };
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
+    <section id="free-time">
+      <h2>In My Free Time</h2>
+      <p>3D printing enthusiast – building storage mods and custom solutions for home.</p>
+      <p>Movie lover – from indie thrillers to cult classics.</p>
+      <p>Massive vinyl collector – too many records, too little time.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Coming soon – personal DevOps projects will be listed here.</p>
+    </section>
+  </main>
+
 </body>
 </html>
