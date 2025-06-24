@@ -13,7 +13,7 @@
     scroll-behavior: smooth;
   }
   html {
-    scroll-padding-top: 200px;
+    scroll-padding-top: 250px;
   }
   body, html {
     height: 100%;
@@ -55,8 +55,10 @@
     gap: 1rem;
     background: rgba(0,0,0,0.85);
     padding: 0.75rem 0;
-    z-index: 999;
+    z-index: 1000;
     flex-wrap: wrap;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 10px rgba(0, 255, 153, 0.3);
   }
   nav a {
     color: #a0ffe0;
@@ -64,6 +66,7 @@
     padding: 0.5rem 1rem;
     border-radius: 12px;
     font-weight: bold;
+    transition: background 0.3s, color 0.3s;
   }
   nav a:hover, nav a.active {
     background: #00ff99;
@@ -71,28 +74,28 @@
   }
   main {
     max-width: 900px;
-    margin: 190px auto 4rem; /* increased top margin */
+    margin: 260px auto 4rem;
     padding: 0 1rem;
   }
   section {
     background: rgba(0,0,0,0.8);
-    padding: 2.5rem 2rem 2rem 2rem; /* added top padding */
-    margin-bottom: 4.5rem; /* increased bottom margin */
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
   }
-  section > *:not(h2) {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   h2 {
     color: #00ff99;
     text-align: center;
     margin-bottom: 1.5rem;
   }
-  /* ... rest of your CSS remains unchanged ... */
   .skill {
     margin-bottom: 1rem;
   }
@@ -214,13 +217,10 @@
 <main>
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      Experienced DevOps Engineer with over 4 years of hands-on experience designing, deploying, and optimizing scalable cloud infrastructure. I specialize in Linux, Docker, AWS, Kubernetes, Grafana and automation tooling that transforms manual operations into reliable pipelines. Passionate about Infrastructure as Code, observability, and CI/CD best practices, I focus on delivering robust systems that empower developers and improve system resilience.
-    </p>
-    <p>
-      I thrive in environments where innovation and iteration are key—leveraging AI to streamline workflows, drive automation, and accelerate continuous learning. I maintain a personal homelab to prototype ideas, validate architecture concepts, and 3D print practical solutions - say a fully functional spice rack! Whether it's building from scratch or refining existing setups, I’m always seeking ways to elevate both team performance and technical excellence.
-    </p>
+    <p>Experienced DevOps Engineer with over 4 years of hands-on experience designing, deploying, and optimizing scalable cloud infrastructure. I specialize in Linux, Docker, AWS, Kubernetes, Grafana and automation tooling that transforms manual operations into reliable pipelines. Passionate about Infrastructure as Code, observability, and CI/CD best practices, I focus on delivering robust systems that empower developers and improve system resilience.</p>
+    <p>I thrive in environments where innovation and iteration are key—leveraging AI to streamline workflows, drive automation, and accelerate continuous learning. I maintain a personal homelab to prototype ideas, validate architecture concepts, and 3D print practical solutions - say a fully functional spice rack! Whether it's building from scratch or refining existing setups, I’m always seeking ways to elevate both team performance and technical excellence.</p>
   </section>
+
   <section id="skills">
     <h2>Tech Skills</h2>
     <div class="skill"><div class="skill-name">AWS</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 90%"></div></div></div>
@@ -231,6 +231,7 @@
     <div class="skill"><div class="skill-name">Prometheus / OpenTelemetry</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 70%"></div></div></div>
     <div class="skill"><div class="skill-name">Go / Python / JavaScript</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 75%"></div></div></div>
   </section>
+
   <section id="experience">
     <h2>Experience</h2>
     <div class="roadmap">
@@ -274,6 +275,7 @@
       </div>
     </div>
   </section>
+
   <section id="projects">
     <h2>My Projects</h2>
     <div class="projects-grid">
@@ -283,44 +285,57 @@
       <div class="project-card"><h3>Cthulhu</h3><p>Work in progress</p></div>
     </div>
   </section>
+
   <section id="certifications">
     <h2>Certifications</h2>
     <p>Coming soon...</p>
   </section>
+
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:dimi.ivanov666@gmail.com">dimi.ivanov666@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/dimitar-ivanov-88b250263" target="_blank">https://www.linkedin.com/in/dimitar-ivanov-88b250263</a></p>
   </section>
 </main>
+
 <button id="scrollTopBtn" title="Back to Top">↑</button>
+
 <script>
-  const scrollBtn = document.getElementById("scrollTopBtn");
-  const navLinks = document.querySelectorAll("nav a");
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
 
-  window.addEventListener("scroll", () => {
-    scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    function animateSections() {
+      sections.forEach((sec) => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          sec.classList.add("visible");
+        }
+      });
+    }
 
-    document.querySelectorAll('.experience').forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        el.classList.add('reveal');
-      }
+    function highlightNav() {
+      let index = sections.length;
+      while (--index && window.scrollY + 250 < sections[index].offsetTop) {}
+      navLinks.forEach((link) => link.classList.remove("active"));
+      if (navLinks[index]) navLinks[index].classList.add("active");
+    }
+
+    window.addEventListener("scroll", () => {
+      animateSections();
+      highlightNav();
     });
 
-    const scrollPos = window.scrollY + 210;
-    navLinks.forEach(link => {
-      const section = document.querySelector(link.getAttribute("href"));
-      if (section && section.offsetTop <= scrollPos && (section.offsetTop + section.offsetHeight) > scrollPos) {
-        link.classList.add("active");
-      } else {
-        link.classList.remove("active");
-      }
-    });
-  });
+    animateSections();
+    highlightNav();
 
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
   });
 </script>
 </body>
