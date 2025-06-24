@@ -203,7 +203,6 @@
   <a href="#certifications">Certifications</a>
   <a href="#contact">Contact</a>
 </nav>
-
 <main>
   <section id="about">
     <h2>About Me</h2>
@@ -214,19 +213,16 @@
       I thrive in environments where innovation and iteration are key—leveraging AI to streamline workflows, drive automation, and accelerate continuous learning. I maintain a personal homelab to prototype ideas, validate architecture concepts, and 3D print practical solutions - say a fully functional spice rack! Whether it's building from scratch or refining existing setups, I’m always seeking ways to elevate both team performance and technical excellence.
     </p>
   </section>
-
   <section id="skills">
     <h2>Tech Skills</h2>
     <div class="skill"><div class="skill-name">AWS</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 90%"></div></div></div>
-    <div class="skill"><div class="skill-name">Jenkins</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 90%"></div></div></div>
     <div class="skill"><div class="skill-name">Linux</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 85%"></div></div></div>
     <div class="skill"><div class="skill-name">Docker</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 80%"></div></div></div>
     <div class="skill"><div class="skill-name">Grafana / Loki</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 75%"></div></div></div>
     <div class="skill"><div class="skill-name">Prometheus / OpenTelemetry</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 70%"></div></div></div>
     <div class="skill"><div class="skill-name">Go / Python / JavaScript</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 75%"></div></div></div>
-    <div class="skill"><div class="skill-name">Kubernetes</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 65%"></div></div></div>
+    <div class="skill"><div class="skill-name">Jenkins</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 65%"></div></div></div>
   </section>
-
   <section id="experience">
     <h2>Experience</h2>
     <div class="roadmap">
@@ -261,7 +257,7 @@
       </div>
       <div class="experience">
         <h3>C3i Solutions</h3>
-        <span>Windows Admin (Oct 2020 – Sep 2021)</span>
+        <span>Windows SysAdmin (Oct 2020 – Sep 2021)</span>
         <ul>
           <li>Active Directory & GPO</li>
           <li>Patching and compliance</li>
@@ -270,7 +266,6 @@
       </div>
     </div>
   </section>
-
   <section id="projects">
     <h2>My Projects</h2>
     <div class="projects-grid">
@@ -280,25 +275,21 @@
       <div class="project-card"><h3>Cthulhu</h3><p>Work in progress</p></div>
     </div>
   </section>
-
   <section id="certifications">
     <h2>Certifications</h2>
     <p>Coming soon...</p>
   </section>
-
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:dimi.ivanov666@gmail.com">dimi.ivanov666@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/dimitar-ivanov-88b250263" target="_blank">LinkedIn Profile</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/dimitar-ivanov-88b250263" target="_blank">https://www.linkedin.com/in/dimitar-ivanov-88b250263</a></p>
   </section>
 </main>
-
 <button id="scrollTopBtn" title="Back to Top">↑</button>
 <script>
   const scrollBtn = document.getElementById("scrollTopBtn");
   window.addEventListener("scroll", () => {
     scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-
     document.querySelectorAll('.experience').forEach((el) => {
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight - 100) {
@@ -306,7 +297,6 @@
       }
     });
   });
-
   scrollBtn.addEventListener("click", () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
   });
