@@ -2,136 +2,220 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dimitar Ivanov - DevOps Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dimitar Ivanov - CV</title>
   <style>
+    /* Reset */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+    }
+    nav {
       display: flex;
-      min-height: 100vh;
-      color: #f0f0f0;
-      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      justify-content: center;
+      gap: 2rem;
+      background: #222;
+      padding: 0.5rem 0;
+      position: sticky;
+      top: 3.5rem;
+      z-index: 100;
     }
-    aside {
-      width: 280px;
-      background-color: #1e1e2f;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: fixed;
-      height: 100vh;
-      overflow-y: auto;
-    }
-    aside h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #bb86fc;
-    }
-    aside nav a {
-      color: #ccc;
+    nav a {
+      color: #fff;
       text-decoration: none;
-      margin: 0.5rem 0;
-      display: block;
-      transition: color 0.3s;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
-    aside nav a:hover, aside nav a.active {
-      color: #bb86fc;
-    }
-    main {
-      margin-left: 280px;
-      padding: 2rem;
-      flex: 1;
+    nav a:hover {
+      color: #00aaff;
     }
     section {
-      margin-bottom: 3rem;
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
     }
-    h2 {
-      font-size: 1.8rem;
+    h1, h2 {
       margin-bottom: 1rem;
-      color: #bb86fc;
+      color: #222;
     }
     p {
       margin-bottom: 1rem;
-      line-height: 1.6;
     }
-    @media screen and (max-width: 768px) {
-      aside {
-        position: relative;
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: space-around;
+    ul {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #222;
+      color: #ccc;
+      margin-top: 3rem;
+    }
+
+    /* Experience Section Styling */
+    .experience {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 1rem;
+    }
+    .experience img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #eee;
+      padding: 5px;
+      flex-shrink: 0;
+    }
+    .experience-content h3 {
+      margin: 0;
+      color: #0077cc;
+    }
+    .experience-content span {
+      font-size: 0.9rem;
+      color: #666;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .experience-content p {
+      margin: 0;
+      font-weight: 400;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
       }
-      main {
-        margin-left: 0;
-        padding: 1rem;
+      .experience {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .experience img {
+        margin-bottom: 0.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <aside>
-    <h1>Dimitar Ivanov</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#free-time">Free Time</a>
-      <a href="#projects">Projects</a>
-    </nav>
-  </aside>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Motivated DevOps Engineer with 3+ years of experience in Linux, Windows, Docker, VMs, and AWS. Passionate about upgrading my tech stack and continuously improving. I own an OrangePi, enjoy building projects and helping teams grow in IT.</p>
-    </section>
+<header>
+  <h1>Dimitar Ivanov</h1>
+</header>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <p><strong>AWS:</strong> EC2, IAM, S3 automation, secure VPCs, Terraform IaC.</p>
-      <p><strong>Linux:</strong> Bash scripting, systemd, log analysis, SSH, UFW.</p>
-      <p><strong>Docker:</strong> Compose, multi-stage builds, security, networking.</p>
-      <p><strong>Grafana/Loki:</strong> Dashboards, alerts, pipeline config, visualization.</p>
-      <p><strong>Prometheus/OpenTelemetry:</strong> Traces, metrics, exporters, Tempo.</p>
-      <p><strong>Go/Python/JS:</strong> CLI tools, automation, scripting, Postman/API use.</p>
-      <p><strong>Kubernetes:</strong> Entry-level: pods, services, deployments (kubectl).</p>
-    </section>
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <p><strong>Domotz</strong> – DevOps Engineer (Sep 2024 – Present)</p>
-      <p>Automation and observability with Grafana; focused on performance and system reliability.</p>
+<main>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Motivated DevOps Engineer with over 3 years of experience working in the world of Linux, Windows servers, Docker, VM's and AWS. Enthusiast about updating my tech stack and always trying to improve myself and my work. A OrangePI owner, keen to see the possibilities it holds, creating my own projects and helping my friends and team evolve in IT!</p>
+  </section>
 
-      <p><strong>SAP Contractor</strong> – CloudOps Engineer (Nov 2023 – Sep 2024)</p>
-      <p>Linux/Windows management, CI/CD pipelines, Kubernetes, testing via Postman.</p>
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>AWS:</strong> Expertise in EC2 provisioning, IAM policies, S3 bucket automation, and secure VPC architecture. Use of Terraform for infrastructure-as-code and Lambda for event-driven microservices.</li>
+      <li><strong>Linux:</strong> Proficient with Bash scripting, cron jobs, systemd services, log analysis, and securing production servers using SSH hardening, UFW, and fail2ban.</li>
+      <li><strong>Docker:</strong> Designed and deployed Docker-based microservice apps using Compose and multi-stage builds. Familiar with best practices for container networking and security.</li>
+      <li><strong>Grafana & Loki:</strong> Real-time dashboards and alerting, log aggregation using Loki pipelines, and integrating Prometheus metrics with clean visualizations.</li>
+      <li><strong>Prometheus & OpenTelemetry:</strong> End-to-end observability including metrics, logs, and traces. Integrated OTEL with backends like Tempo and Prometheus exporters.</li>
+      <li><strong>Programming:</strong> Writing efficient CLI tools in Go, scripting automation in Python, and front-end tweaks using JavaScript. Comfortable using APIs and REST clients like Postman.</li>
+      <li><strong>Kubernetes:</strong> Entry-level experience in deploying and managing containerized applications using kubectl and basic understanding of Pods, Services, and Deployments.</li>
+    </ul>
+  </section>
 
-      <p><strong>HedgeServ</strong> – RPA Engineer (Oct 2021 – Oct 2023)</p>
-      <p>Automated data scraping using Python, used PowerBI for reporting and dashboards.</p>
+  <section id="experience">
+    <h2>Experience</h2>
 
-      <p><strong>C3i Solutions</strong> – Windows Admin (Oct 2020 – Sep 2021)</p>
-      <p>Managed infrastructure and user services across enterprise Windows environments.</p>
-    </section>
+    <div class="experience">
+      <img src="https://raw.githubusercontent.com/InquisitorDimi/InquisitorDimi.github.io/main/images/domotz-logo-2560.png" alt="Domotz Logo" />
+      <div class="experience-content">
+        <h3>Domotz</h3>
+        <span>DevOps Engineer (Sep 2024 – Present)</span>
+        <p>Focused on infrastructure automation and observability with Grafana stack. System resilience and performance are top priorities.</p>
+      </div>
+    </div>
 
-    <section id="free-time">
-      <h2>In My Free Time</h2>
-      <p>3D printing enthusiast – building storage mods and custom solutions for home.</p>
-      <p>Movie lover – from indie thrillers to cult classics.</p>
-      <p>Massive vinyl collector – too many records, too little time.</p>
-    </section>
+    <div class="experience">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2560px-SAP_2011_logo.svg.png" alt="SAP Logo" />
+      <div class="experience-content">
+        <h3>SAP (Contractor)</h3>
+        <span>CloudOps Engineer (Nov 2023 – Sep 2024)</span>
+        <p>Maintained Windows/Linux systems with CI/CD pipelines, Kubernetes automation, and Postman test orchestration. Collaborated with Dev teams to improve system reliability.</p>
+      </div>
+    </div>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <p>Coming soon – personal DevOps projects will be listed here.</p>
-    </section>
-  </main>
+    <div class="experience">
+      <img src="https://raw.githubusercontent.com/InquisitorDimi/InquisitorDimi.github.io/main/images/hedgeserv-logo-2560.png" alt="HedgeServ Logo" />
+      <div class="experience-content">
+        <h3>HedgeServ</h3>
+        <span>RPA Engineer (Oct 2021 – Oct 2023)</span>
+        <p>Created and maintained Python automation for scraping financial websites, with structured reporting via PowerBI dashboards. Focused on clean, maintainable code.</p>
+      </div>
+    </div>
+
+    <div class="experience">
+      <img src="https://raw.githubusercontent.com/InquisitorDimi/InquisitorDimi.github.io/main/images/c3i-logo-2560.png" alt="C3i Solutions Logo" />
+      <div class="experience-content">
+        <h3>C3i Solutions</h3>
+        <span>Windows Admin (Oct 2020 – Sep 2021)</span>
+        <p>Managed enterprise Windows infrastructure including Active Directory provisioning, patching, and security policy enforcement for internal systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <h3>Bachelor of Science in Computer Science — Your University</h3>
+    <p><em>Graduated 2020</em></p>
+    <p>Relevant courses: Operating Systems, Networks, Cloud Computing.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:your.email@example.com">dimi.ivanov666@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="www.linkedin.com/in/dimitar-ivanov-88b250263" rel="noopener">linkedin.com/in/yourprofile</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Dimitar Ivanov</p>
+</footer>
 
 </body>
 </html>
