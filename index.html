@@ -6,6 +6,9 @@
   <title>Dimitar Ivanov - DevOps CV</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Fira Code', monospace;
@@ -39,12 +42,20 @@
       padding: 2rem;
       max-width: 900px;
       margin: auto;
-      animation: fadeIn 1.5s ease-in;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in forwards;
     }
+    section:nth-of-type(1) { animation-delay: 0.2s; }
+    section:nth-of-type(2) { animation-delay: 0.4s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.8s; }
+    section:nth-of-type(5) { animation-delay: 1s; }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     h2 {
       color: #a855f7;
       font-size: 1.8rem;
@@ -58,6 +69,11 @@
     }
     .job {
       margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .job:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(200, 132, 252, 0.2);
     }
     .job-title {
       font-weight: bold;
@@ -78,17 +94,27 @@
       padding: 0.4rem 0.8rem;
       border-radius: 8px;
       font-size: 0.9rem;
+      transition: transform 0.2s;
+    }
+    .skill:hover {
+      transform: scale(1.1);
     }
     .project {
       margin-bottom: 1rem;
       font-weight: bold;
       color: #f9a8d4;
+      transition: color 0.3s;
+    }
+    .project:hover {
+      color: #f472b6;
     }
     footer {
       background: #1c1b2f;
       color: #a78bfa;
       text-align: center;
       padding: 2rem 1rem;
+      margin-top: 2rem;
+      animation: fadeIn 2s ease-in;
     }
     a {
       color: #d8b4fe;
