@@ -3,148 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dimitar Ivanov - DevOps CV</title>
+  <title>Dimitar Ivanov - DevOps Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
     * {
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
     body {
       margin: 0;
       font-family: 'Fira Code', monospace;
-      background-color: #0f0c29;
-      background-image: linear-gradient(315deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-      color: #ccc;
+      background: radial-gradient(circle at 30% 30%, #1e1b4b, #111827);
+      color: #d1d5db;
       overflow-x: hidden;
+    }
+    nav {
+      background: #1f2937;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: #c084fc;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #f9a8d4;
     }
     header {
       text-align: center;
-      padding: 3rem 1rem 1rem;
+      padding: 4rem 1rem;
     }
-    header h1 {
-      color: #c084fc;
-      font-size: 2.5rem;
-      animation: typing 3s steps(30, end), blink .75s step-end infinite;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: .15em solid #c084fc;
-      width: 22ch;
-      margin: 0 auto;
-    }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 22ch }
-    }
-    @keyframes blink {
-      50% { border-color: transparent }
+    .typed-text {
+      font-size: 2rem;
+      color: #a78bfa;
+      margin-top: 1rem;
     }
     section {
-      padding: 2rem;
       max-width: 900px;
       margin: auto;
+      padding: 4rem 2rem;
       opacity: 0;
-      animation: fadeIn 1.5s ease-in forwards;
+      animation: fadeIn 1s ease forwards;
     }
-    section:nth-of-type(1) { animation-delay: 0.2s; }
-    section:nth-of-type(2) { animation-delay: 0.4s; }
-    section:nth-of-type(3) { animation-delay: 0.6s; }
-    section:nth-of-type(4) { animation-delay: 0.8s; }
-    section:nth-of-type(5) { animation-delay: 1s; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    section:nth-of-type(1) { animation-delay: 0.3s; }
+    section:nth-of-type(2) { animation-delay: 0.6s; }
+    section:nth-of-type(3) { animation-delay: 0.9s; }
+    section:nth-of-type(4) { animation-delay: 1.2s; }
+    section:nth-of-type(5) { animation-delay: 1.5s; }
     h2 {
-      color: #a855f7;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #a855f7;
+      color: #c084fc;
+      font-size: 2rem;
+      border-bottom: 2px solid #c084fc;
       padding-bottom: .5rem;
+      margin-bottom: 1rem;
     }
     ul {
-      list-style-type: square;
       padding-left: 1.5rem;
     }
-    .job {
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .job:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 20px rgba(200, 132, 252, 0.2);
-    }
-    .job-title {
-      font-weight: bold;
-      color: #d8b4fe;
-    }
-    .job-company {
-      font-style: italic;
-      color: #c084fc;
-    }
-    .skills {
+    .skills, .projects {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.75rem;
     }
-    .skill {
+    .skill, .projects div {
       background: #7c3aed;
-      color: #fff;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
       transition: transform 0.2s;
     }
-    .skill:hover {
-      transform: scale(1.1);
-    }
-    .project {
-      margin-bottom: 1rem;
-      font-weight: bold;
-      color: #f9a8d4;
-      transition: color 0.3s;
-    }
-    .project:hover {
-      color: #f472b6;
+    .skill:hover, .projects div:hover {
+      transform: scale(1.05);
     }
     footer {
-      background: #1c1b2f;
-      color: #a78bfa;
+      background: #111827;
       text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
-      animation: fadeIn 2s ease-in;
+      padding: 2rem;
+      color: #a78bfa;
     }
     a {
       color: #d8b4fe;
-      text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8rem;
-        width: 90%;
-      }
+      nav { flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Passion Projects</a>
+    <a href="#references">References</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <header>
     <h1>Dimitar Ivanov</h1>
-    <p>CloudOps / DevOps Engineer</p>
+    <div class="typed-text">
+      <span id="typed"></span>
+    </div>
   </header>
 
-  <section>
+  <section id="about">
     <h2>About Me</h2>
     <p>
-      Motivated CloudOps/DevOps Engineer with over 3 years of experience working in the world of Linux, Windows servers, Kubernetes, Docker, VMs and AWS. Enthusiast about updating my tech stack and always trying to improve myself and my work. An OrangePI owner, keen to see the possibilities it holds, creating my own projects and helping my friends and team evolve in IT!
+      Motivated CloudOps/DevOps Engineer with 3+ years of experience with Linux, Windows, Kubernetes, Docker, and AWS. Enthusiast of emerging tech, OrangePi tinker, project builder, and a team player passionate about growth.
     </p>
   </section>
 
-  <section>
+  <section id="skills">
     <h2>Skills</h2>
     <div class="skills">
       <div class="skill">AWS</div>
@@ -157,65 +141,65 @@
       <div class="skill">Bash</div>
       <div class="skill">SSH</div>
       <div class="skill">Bitbucket</div>
-      <div class="skill">Appsmith</div>
       <div class="skill">Linux</div>
     </div>
   </section>
 
-  <section>
+  <section id="experience">
     <h2>Experience</h2>
-    <div class="job">
-      <div class="job-title">Platform Engineer</div>
-      <div class="job-company">Domotz · Sep 2024 - Jul 2025 · Sofia, Hybrid</div>
-      <ul>
-        <li>Automated CI infrastructure (Linux, MacOS, Windows) via SaltStack</li>
-        <li>Jenkins pipeline configuration, job creation, node provisioning</li>
-        <li>AWS S3, Lambda, CodeCommit, EC2, CloudWatch</li>
-        <li>Created tools in Python, Bash, JavaScript for internal workflows</li>
-        <li>Provisioned Prometheus, Grafana, Grafana Loki</li>
-      </ul>
-    </div>
-    <div class="job">
-      <div class="job-title">Cloud/DevOps Engineer</div>
-      <div class="job-company">DIGITALL · Nov 2023 - Sep 2024 · Sofia</div>
-      <ul>
-        <li>Supported hosted SAP systems (Linux/Windows)</li>
-        <li>Used Prometheus, Elastic, Postman for monitoring and testing</li>
-        <li>Collaborated with dev teams for CI/CD of containerized apps using K8s</li>
-        <li>Worked with AWS, GCP, Jenkins, GitHub, Git, ServiceNow</li>
-      </ul>
-    </div>
-    <div class="job">
-      <div class="job-title">RPA Engineer</div>
-      <div class="job-company">HedgeServ · Oct 2021 - Nov 2023 · Bulgaria, Hybrid</div>
-      <ul>
-        <li>Built automations with Power Automate, Blue Prism</li>
-        <li>Worked with Azure, SQL Server, SharePoint, GitHub, Jenkins</li>
-        <li>Handled support, testing, debugging and process improvements</li>
-        <li>Monitored logs using Elastic Stack and Kibana</li>
-      </ul>
-    </div>
+    <h3>Platform Engineer · Domotz</h3>
+    <p><em>Sep 2024 – Jul 2025 · Sofia, Hybrid</em></p>
+    <ul>
+      <li>CI automation with SaltStack, Jenkins, AWS</li>
+      <li>Infrastructure deployment and monitoring with Prometheus, Grafana, Loki</li>
+      <li>Built internal tools using Python, Bash, and JavaScript</li>
+    </ul>
+
+    <h3>Cloud/DevOps Engineer · DIGITALL</h3>
+    <p><em>Nov 2023 – Sep 2024 · Sofia</em></p>
+    <ul>
+      <li>SAP systems support and monitoring with Prometheus and Elastic</li>
+      <li>Kubernetes CI/CD pipelines</li>
+      <li>Tools: Postman, AWS, GCP, GitHub, Jenkins</li>
+    </ul>
+
+    <h3>RPA Engineer · HedgeServ</h3>
+    <p><em>Oct 2021 – Nov 2023 · Bulgaria, Hybrid</em></p>
+    <ul>
+      <li>Power Automate, Blue Prism, Azure, SQL automation</li>
+      <li>Monitoring with Elastic Stack, Kibana</li>
+    </ul>
   </section>
 
-  <section>
+  <section id="projects">
     <h2>Passion Projects</h2>
-    <div class="project">OrangePi tinkering</div>
-    <div class="project">Flipper Zero experiments</div>
-    <div class="project">3D Printing creations</div>
+    <div class="projects">
+      <div>OrangePi Tinkering</div>
+      <div>Flipper Zero Hacking</div>
+      <div>3D Printing</div>
+    </div>
   </section>
 
-  <section>
-    <h2>Reference Letters</h2>
-    <p>
-      <strong>Domotz:</strong> <em>“Dimitar brought energy, determination, and an open mindset to everything he did. His presence elevated the quality of the work and inspired those around him.”</em><br />
-      <strong>Contact:</strong> viola.izzo@domotz.com
-    </p>
+  <section id="references">
+    <h2>References</h2>
+    <p><strong>Domotz:</strong> “Dimitar brought energy, determination, and an open mindset to everything he did. His presence elevated the quality of the work and inspired those around him.”</p>
+    <p><strong>Contact:</strong> viola.izzo@domotz.com</p>
   </section>
 
-  <footer>
+  <footer id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:dimi.ivanov666@gmail.com">dimi.ivanov666@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/dimitar-ivanov-88b250263" target="_blank">linkedin.com/in/dimitar-ivanov-88b250263</a></p>
   </footer>
+
+  <script>
+    const typed = new Typed("#typed", {
+      strings: ["CloudOps Engineer", "DevOps Enthusiast", "Open Source Tinkerer"],
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 2000,
+      loop: true
+    });
+  </script>
 </body>
 </html>
