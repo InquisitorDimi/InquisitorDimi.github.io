@@ -1,204 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dimitar Ivanov - DevOps Roadmap CV</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-  * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-  html { scroll-padding-top: 150px; }
-  body {
-    font-family: 'Poppins', sans-serif;
-    background:
-      radial-gradient(ellipse at center, #0d0d0d 0%, #000 100%),
-      url('https://cdn.pixabay.com/photo/2016/12/20/15/57/milky-way-1917609_1280.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #eee;
-    overflow-x: hidden;
-    position: relative;
-    min-height: 100vh;
-  }
-  /* Starfield canvas covers full screen behind content */
-  #starfield {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none; /* Allows clicks through the canvas */
-    z-index: 0;
-  }
-  header {
-    position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.9);
-    padding: 1rem; text-align: center; color: #00ff99; font-size: 1.8rem;
-    font-weight: bold; box-shadow: 0 0 15px #00ff99; z-index: 1001;
-  }
-  nav {
-    position: fixed; top: 70px; width: 100%; display: flex; justify-content: center;
-    background: rgba(0,0,0,0.85); padding: 0.75rem 0; z-index: 1000;
-  }
-  nav a {
-    color: #a0ffe0; text-decoration: none; padding: 0.5rem 1rem; border-radius: 12px; font-weight: bold;
-  }
-  nav a:hover, nav a.active { background: #00ff99; color: #000; }
-  main { max-width: 900px; margin: 160px auto 4rem; padding: 0 1rem; position: relative; z-index: 1; }
-  section {
-    background: rgba(0,0,0,0.8); padding: 2rem; margin-bottom: 2rem;
-    border-radius: 12px; box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
-  }
-  h2 { color: #00ff99; text-align: center; margin-bottom: 1.5rem; }
-  .skill-name { margin-bottom: 0.3rem; font-weight: bold; color: #00ff99; }
-  .progress-bar { background: #003322; border-radius: 12px; height: 20px; overflow: hidden; }
-  .progress-bar-fill { background: #00ff99; height: 100%; border-radius: 12px; }
-  .experience { border-left: 4px solid #00ff99; padding-left: 1rem; position: relative; }
-  .experience::before {
-    content: ''; position: absolute; left: -10px; top: 10px; width: 16px; height: 16px;
-    background: #00ff99; border-radius: 50%; box-shadow: 0 0 5px #00ff99;
-  }
-  .experience h3 { color: #00ff99; margin-bottom: 0.3rem; }
-  .experience span { font-size: 0.9rem; color: #a0ffe0; }
-  .experience ul { margin-top: 0.5rem; padding-left: 1rem; }
-  .experience ul li { list-style: disc; line-height: 1.5; }
-  .projects-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;
-  }
-  .project-card {
-    background: #111; border: 1px solid #00ff99; border-radius: 12px; padding: 1rem;
-    text-align: center; color: #a0ffe0; box-shadow: 0 0 10px rgba(0, 255, 153, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .project-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px #00ff99; }
-  .project-card h3 { color: #00ff99; margin-bottom: 0.5rem; }
-  #contact a { color: #00ff99; text-decoration: none; }
-  #scrollTopBtn {
-    position: fixed; bottom: 20px; right: 20px; background: #00ff99; color: #000;
-    border: none; padding: 0.8rem; border-radius: 50%; cursor: pointer; display: none;
-    z-index: 9999; font-size: 20px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dimitar Ivanov - DevOps CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      background-color: #0f0c29;
+      background-image: linear-gradient(315deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+      color: #ccc;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+    }
+    header h1 {
+      color: #c084fc;
+      font-size: 2.5rem;
+      animation: typing 3s steps(30, end), blink .75s step-end infinite;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: .15em solid #c084fc;
+      width: 22ch;
+      margin: 0 auto;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 22ch }
+    }
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeIn 1.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      color: #a855f7;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #a855f7;
+      padding-bottom: .5rem;
+    }
+    ul {
+      list-style-type: square;
+      padding-left: 1.5rem;
+    }
+    .job {
+      margin-bottom: 2rem;
+    }
+    .job-title {
+      font-weight: bold;
+      color: #d8b4fe;
+    }
+    .job-company {
+      font-style: italic;
+      color: #c084fc;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill {
+      background: #7c3aed;
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+    .project {
+      margin-bottom: 1rem;
+      font-weight: bold;
+      color: #f9a8d4;
+    }
+    footer {
+      background: #1c1b2f;
+      color: #a78bfa;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    a {
+      color: #d8b4fe;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
-<canvas id="starfield"></canvas>
-<header>Dimitar Ivanov - Experienced DevOps Engineer | AWS | Docker | CI/CD | Monitoring</header>
-<nav>
-  <a href="#about">About</a>
-  <a href="#skills">Tech Skills</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">My Projects</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#contact">Contact</a>
-</nav>
-<main>
-  <section id="about">
+  <header>
+    <h1>Dimitar Ivanov</h1>
+    <p>CloudOps / DevOps Engineer</p>
+  </header>
+
+  <section>
     <h2>About Me</h2>
-    <p>Experienced DevOps Engineer with over 4 years of hands-on experience designing, deploying, and optimizing scalable cloud infrastructure. I specialize in Linux, Docker, AWS, Kubernetes, Grafana and automation tooling that transforms manual operations into reliable pipelines. Passionate about Infrastructure as Code, observability, and CI/CD best practices, I focus on delivering robust systems that empower developers and improve system resilience.</p>
-    <p>I thrive in environments where innovation and iteration are key—leveraging AI to streamline workflows, drive automation, and accelerate continuous learning. I maintain a personal homelab to prototype ideas, validate architecture concepts, and 3D print practical solutions - say a fully functional spice rack! Whether it's building from scratch or refining existing setups, I’m always seeking ways to elevate both team performance and technical excellence.</p>
+    <p>
+      Motivated CloudOps/DevOps Engineer with over 3 years of experience working in the world of Linux, Windows servers, Kubernetes, Docker, VMs and AWS. Enthusiast about updating my tech stack and always trying to improve myself and my work. An OrangePI owner, keen to see the possibilities it holds, creating my own projects and helping my friends and team evolve in IT!
+    </p>
   </section>
-  <section id="skills">
-    <h2>Tech Skills</h2>
-    <div class="skill"><div class="skill-name">AWS</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 90%"></div></div></div>
-    <div class="skill"><div class="skill-name">Jenkins</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 90%"></div></div></div>
-    <div class="skill"><div class="skill-name">Linux</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 85%"></div></div></div>
-    <div class="skill"><div class="skill-name">Docker</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 80%"></div></div></div>
-    <div class="skill"><div class="skill-name">Grafana / Loki</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 75%"></div></div></div>
-    <div class="skill"><div class="skill-name">Prometheus / OpenTelemetry</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 70%"></div></div></div>
-    <div class="skill"><div class="skill-name">Go / Python / JavaScript</div><div class="progress-bar"><div class="progress-bar-fill" style="width: 75%"></div></div></div>
-  </section>
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="experience"><h3>Domotz</h3><span>DevOps Engineer (Sep 2024 – Present)</span><ul><li>Infrastructure optimization</li><li>AWS EC2 provisioning</li><li>Grafana & Loki monitoring</li><li>System performance and resilience</li></ul></div>
-    <div class="experience"><h3>SAP (Contractor)</h3><span>CloudOps Engineer (Nov 2023 – Sep 2024)</span><ul><li>Maintained CI/CD pipelines</li><li>Postman API tests</li><li>Kubernetes automation</li><li>Linux/Windows system maintenance</li></ul></div>
-    <div class="experience"><h3>HedgeServ</h3><span>RPA Engineer (Oct 2021 – Oct 2023)</span><ul><li>Python automation tools</li><li>Financial web scraping</li><li>PowerBI dashboards</li></ul></div>
-    <div class="experience"><h3>C3i Solutions</h3><span>Windows SysAdmin (Oct 2020 – Sep 2021)</span><ul><li>Active Directory & GPO</li><li>Patching and compliance</li><li>Windows infrastructure support</li></ul></div>
-  </section>
-  <section id="projects">
-    <h2>My Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card"><h3>Plex TV</h3><p>Media server project</p></div>
-      <div class="project-card"><h3>Lego Scouting</h3><p>Robotics & analytics</p></div>
-      <div class="project-card"><h3>Vinyl Hunt</h3><p>Not ready</p></div>
-      <div class="project-card"><h3>Cthulhu</h3><p>Work in progress</p></div>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">AWS</div>
+      <div class="skill">Docker</div>
+      <div class="skill">Grafana</div>
+      <div class="skill">SaltStack</div>
+      <div class="skill">Jenkins</div>
+      <div class="skill">Python</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Bash</div>
+      <div class="skill">SSH</div>
+      <div class="skill">Bitbucket</div>
+      <div class="skill">Appsmith</div>
+      <div class="skill">Linux</div>
     </div>
   </section>
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <p>Coming soon...</p>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="job">
+      <div class="job-title">Platform Engineer</div>
+      <div class="job-company">Domotz · Sep 2024 - Jul 2025 · Sofia, Hybrid</div>
+      <ul>
+        <li>Automated CI infrastructure (Linux, MacOS, Windows) via SaltStack</li>
+        <li>Jenkins pipeline configuration, job creation, node provisioning</li>
+        <li>AWS S3, Lambda, CodeCommit, EC2, CloudWatch</li>
+        <li>Created tools in Python, Bash, JavaScript for internal workflows</li>
+        <li>Provisioned Prometheus, Grafana, Grafana Loki</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-title">Cloud/DevOps Engineer</div>
+      <div class="job-company">DIGITALL · Nov 2023 - Sep 2024 · Sofia</div>
+      <ul>
+        <li>Supported hosted SAP systems (Linux/Windows)</li>
+        <li>Used Prometheus, Elastic, Postman for monitoring and testing</li>
+        <li>Collaborated with dev teams for CI/CD of containerized apps using K8s</li>
+        <li>Worked with AWS, GCP, Jenkins, GitHub, Git, ServiceNow</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-title">RPA Engineer</div>
+      <div class="job-company">HedgeServ · Oct 2021 - Nov 2023 · Bulgaria, Hybrid</div>
+      <ul>
+        <li>Built automations with Power Automate, Blue Prism</li>
+        <li>Worked with Azure, SQL Server, SharePoint, GitHub, Jenkins</li>
+        <li>Handled support, testing, debugging and process improvements</li>
+        <li>Monitored logs using Elastic Stack and Kibana</li>
+      </ul>
+    </div>
   </section>
-  <section id="contact">
+
+  <section>
+    <h2>Passion Projects</h2>
+    <div class="project">OrangePi tinkering</div>
+    <div class="project">Flipper Zero experiments</div>
+    <div class="project">3D Printing creations</div>
+  </section>
+
+  <section>
+    <h2>Reference Letters</h2>
+    <p>
+      <strong>Domotz:</strong> <em>“Dimitar brought energy, determination, and an open mindset to everything he did. His presence elevated the quality of the work and inspired those around him.”</em><br />
+      <strong>Contact:</strong> viola.izzo@domotz.com
+    </p>
+  </section>
+
+  <footer>
     <h2>Contact</h2>
     <p>Email: <a href="mailto:dimi.ivanov666@gmail.com">dimi.ivanov666@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/dimitar-ivanov-88b250263" target="_blank">https://www.linkedin.com/in/dimitar-ivanov-88b250263</a></p>
-  </section>
-</main>
-<button id="scrollTopBtn" title="Back to Top">↑</button>
-
-<script>
-  const scrollBtn = document.getElementById("scrollTopBtn");
-  window.addEventListener("scroll", () => {
-    scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-  });
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  // Starfield animation script
-  const canvas = document.getElementById('starfield');
-  const ctx = canvas.getContext('2d');
-  let width, height;
-  let stars = [];
-
-  function init() {
-    resize();
-    createStars(150);
-    animate();
-  }
-
-  function resize() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-  }
-
-  window.addEventListener('resize', () => {
-    resize();
-  });
-
-  function createStars(count) {
-    stars = [];
-    for(let i = 0; i < count; i++) {
-      stars.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 1.2,
-        alpha: Math.random(),
-        delta: (Math.random() * 0.02) + 0.005
-      });
-    }
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    stars.forEach(star => {
-      star.alpha += star.delta;
-      if(star.alpha <= 0) {
-        star.alpha = 0;
-        star.delta = -star.delta;
-      } else if(star.alpha >= 1) {
-        star.alpha = 1;
-        star.delta = -star.delta;
-      }
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
-      ctx.shadowColor = `rgba(255,255,255,${star.alpha})`;
-      ctx.shadowBlur = 8;
-      ctx.fill();
-    });
-    requestAnimationFrame(animate);
-  }
-
-  init();
-</script>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/dimitar-ivanov-88b250263" target="_blank">linkedin.com/in/dimitar-ivanov-88b250263</a></p>
+  </footer>
 </body>
 </html>
